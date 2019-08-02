@@ -14,5 +14,6 @@
 - wordcloud==1.5.0
 
 也可直接通过以下命令行安装依赖
-
-  pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
