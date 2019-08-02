@@ -30,3 +30,8 @@ pip install -r requirements.txt
 python weibo_comment_crawler.py -n [评论数量] -id [微博id]
 ```
 评论数量即是你需要爬取的数量，微博id在第二步中已获得。
+
+### 运行结果
+1. 程序运行过程中会逐条显示爬取的内容；
+2. 爬取结束以后会显示词云，并把评论内容存入目录weibo-comments下的csv文件中；
+3. 显示积极评论与消极评论的数量。
