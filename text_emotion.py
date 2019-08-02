@@ -1,6 +1,4 @@
 import jieba
-import numpy as np
-import time
 
 path = './dictionary/'
 
