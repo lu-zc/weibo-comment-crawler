@@ -1,2 +1,6 @@
 # weibo-comment-crawler
-Crawl Weibo's comments, plot wordcloud and analyze text emotion; 爬取微博评论，并画出词云，分析评论的文本情感
+### 代码实现的功能：
+- 爬取单条微博的评论内容
+- 把爬取的内容保存到csv文件中
+- 对评论内容进行词频分析并画出词云图
+- 分析评论的文本情感，统计积极评论与消极评论的数量
