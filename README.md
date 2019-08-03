@@ -38,4 +38,5 @@ python weibo_comment_crawler.py -n [评论数量] -id [微博id]
 2. 爬取结束以后会显示词云，并把评论内容存入目录weibo-comments下的csv文件中；
 ![](https://github.com/lu-zc/weibo-comment-crawler/blob/master/doc/readme_image/word_cloud.png)
 3. 显示积极评论与消极评论的数量。
+
 ![](https://github.com/lu-zc/weibo-comment-crawler/blob/master/doc/readme_image/num_comments.png)
