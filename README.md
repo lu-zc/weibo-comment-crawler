@@ -23,6 +23,7 @@ pip install -r requirements.txt
 ## 使用方法
 ### 获取cookie
 使用Chrome打开<https://www.weibo.cn>, 登陆以后按F12键进入开发者模式，如下图方式找到cookie，把后面的内容复制到cookie.txt文件夹中。
+![](https://github.com/lu-zc/weibo-comment-crawler/blob/master/doc/readme_image/get_cookie.png)
 ### 获取微博id
 使用Chrome打开<https://m.weibo.cn>, 点开自己想要分析的微博，此时url中<https://m.weibo.cn/detail/>后面的数字就是我们需要的id
 ### 运行程序
@@ -33,5 +34,8 @@ python weibo_comment_crawler.py -n [评论数量] -id [微博id]
 
 ### 运行结果
 1. 程序运行过程中会逐条显示爬取的内容；
+![](https://github.com/lu-zc/weibo-comment-crawler/blob/master/doc/readme_image/comments.png)
 2. 爬取结束以后会显示词云，并把评论内容存入目录weibo-comments下的csv文件中；
+![](https://github.com/lu-zc/weibo-comment-crawler/blob/master/doc/readme_image/word_cloud.png)
 3. 显示积极评论与消极评论的数量。
+![](https://github.com/lu-zc/weibo-comment-crawler/blob/master/doc/readme_image/num_comments.png)
