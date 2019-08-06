@@ -7,6 +7,7 @@ import jieba.analyse
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 from text_emotion import get_sentiment_score, count_sentiment
+import pymysql
 
 plt.rcParams['font.sans-serif']=['SimHei']
 plt.rcParams['axes.unicode_minus']=False
