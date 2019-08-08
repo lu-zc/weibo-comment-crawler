@@ -1,4 +1,4 @@
-# weibo-comment-crawler
+# Weibo Comment Crawler
 
 ## 功能：
 - 爬取单条微博的评论内容
@@ -15,6 +15,7 @@
 - matplotlib==3.1.1
 - pandas==0.25.0
 - wordcloud==1.5.0
+- pymysql==0.9.3
 
 也可直接通过以下命令行安装依赖
 ```bash
