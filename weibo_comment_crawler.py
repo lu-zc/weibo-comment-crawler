@@ -31,7 +31,7 @@ class WeiboCommentCrawer(object):
         self.max_num = max_num  # 爬取评论数的上限
         self.r_data = {}
         self.stop_flag = False
-        self.data_frame = DataFrame(columns=['id', 'text', 'user', 'time'])  # 存储评论内容(微博id，文本，用户名，时间)
+        self.data_frame = DataFrame(columns=['text', 'score', 'user', 'time'])  # 存储评论内容(微博id，文本，用户名，时间)
         self.url = 'https://m.weibo.cn/api/comments/show?id=' + self.weibo_id + '&page={}'  # 评论地址（按时间）
         self.hot_url = 'https://m.weibo.cn/comments/hotflow?id=' + self.weibo_id + '&mid=' + self.weibo_id + \
                        '&max_id_type=0'  # 热门评论的网址(按热度排序)
@@ -100,8 +100,8 @@ class WeiboCommentCrawer(object):
                 score = get_sentiment_score(comment_text)
                 self.score_list.append(score)
 
-                series = Series([str(comment_id), user_name, comment_time, comment_text],
-                                index=['id', 'user', 'time', 'text'])
+                series = Series([user_name, comment_time, comment_text, score],
+                                index=['user', 'time', 'text', 'score'])
                 self.data_frame = self.data_frame.append(series, ignore_index=True)
                 print('第 {} / {} 条评论 '.format(str(len(self.comment_list)).zfill(4), self.r_data['total_number']),
                       '|', str(score).center(5), '| ', comment_text, ' | ', user_name, ' | ',comment_time)
