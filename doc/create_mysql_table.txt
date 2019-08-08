@@ -1,0 +1,14 @@
+create table weibo_comments
+(
+id              int                not null  auto_increment,  
+comment   text               null,  
+score          int                null,  
+user_name  varchar(255) null,  
+time           datetime       null,  
+primary key (id)
+);
+
+insert into weibo_comments
+(comment, score, user_name, time)
+values
+('¹þ¹þ¹þ', 2, 'À²À²À²', '2019-08-08 09:07:32');

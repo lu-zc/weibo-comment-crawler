@@ -154,7 +154,7 @@ class WeiboCommentCrawer(object):
                                      charset='utf8')
         cursor = connection.cursor()
         sql = '''
-              INSERT INTO test
+              INSERT INTO  weibo_comments
               (comment, score, user_name, time)
               VALUES
               ('{}', {}, '{}', '{}')
