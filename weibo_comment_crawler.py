@@ -103,6 +103,8 @@ class WeiboCommentCrawer(object):
                 series = Series([user_name, comment_time, comment_text, score],
                                 index=['user', 'time', 'text', 'score'])
                 self.data_frame = self.data_frame.append(series, ignore_index=True)
+                self.save_to_mysql(comment_text, score, user_name, comment_time)
+
                 print('第 {} / {} 条评论 '.format(str(len(self.comment_list)).zfill(4), self.r_data['total_number']),
                       '|', str(score).center(5), '| ', comment_text, ' | ', user_name, ' | ',comment_time)
 
@@ -138,6 +140,28 @@ class WeiboCommentCrawer(object):
     def get_text_emotion(self):
         pos_num, neg_num = count_sentiment(self.score_list)
         print('\n 积极评论数：{} | 消极评论数：{} \n'.format(pos_num, neg_num))
+
+    def save_to_mysql(self, comment_text, score, user_name, comment_time):
+        # 将数据保存到mysql数据库中，数据库的参数需要根据自己的情况设定
+        # 如果不想使用数据库，可注释掉此部分
+        comment_time = comment_time[:20] + comment_time[25:]
+        comment_time = time.strftime("%Y-%m-%d %H:%M:%S", time.strptime(comment_time, "%a %b %d %H:%M:%S %Y"))
+        connection = pymysql.connect(host='localhost',
+                                     port=3306,
+                                     user='root',
+                                     password='root',
+                                     db='weibo_crawler',
+                                     charset='utf8')
+        cursor = connection.cursor()
+        sql = '''
+              INSERT INTO test
+              (comment, score, user_name, time)
+              VALUES
+              ('{}', {}, '{}', '{}')
+              '''.format(comment_text, score, user_name, comment_time)
+        cursor.execute(sql)
+        connection.commit()
+        connection.close()
 
     def visual_data(self, csv_path):
         # 读取csv文件的内容，并打印词云、分析词频(TF-IDF)
