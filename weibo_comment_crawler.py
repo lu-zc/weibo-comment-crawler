@@ -103,7 +103,7 @@ class WeiboCommentCrawer(object):
                 series = Series([user_name, comment_time, comment_text, score],
                                 index=['user', 'time', 'text', 'score'])
                 self.data_frame = self.data_frame.append(series, ignore_index=True)
-                self.save_to_mysql(comment_text, score, user_name, comment_time)
+                self.save_to_mysql(comment_text, score, user_name, comment_time)  # 如不需要mysql，注释掉
 
                 print('第 {} / {} 条评论 '.format(str(len(self.comment_list)).zfill(4), self.r_data['total_number']),
                       '|', str(score).center(5), '| ', comment_text, ' | ', user_name, ' | ',comment_time)
